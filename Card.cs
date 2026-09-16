@@ -1,3 +1,5 @@
+using System.Xml;
+
 namespace Toolkit;
 
 /*
@@ -6,7 +8,7 @@ namespace Toolkit;
  3. if the rank and suit of a card were able to change during the game, i imagine that would
  result in some illegal actions. for example, one could just change a disadvantageous card
  into an advantageous one
- */
+
 
 public record Card
 {
@@ -32,4 +34,26 @@ public record Card
         Rank = rank;
         Suit = suit;
     }
+}
+
+
+//--------------------cool thing n1 (Suit object):--------------------
+
+public record Suit(string Name = "", string Color = "Black");
+
+public record Card(int Value, Suit Suit, bool IsFaceUp = true);
+ */
+
+//--------------------cool thing n2 ()--------------------
+public record Suit(string Name = "", string Color = "Black")
+{
+    public static Suit Hearts => new Suit("♥","Red");
+    public static Suit Diamonds => new Suit("♦","Red");
+    public static Suit Clubs => new Suit("♣","Black");
+    public static Suit Spades => new Suit("♠","Black");
+}
+
+public record Card(int Value, Suit Suit, bool IsFaceUp = true)
+{
+    
 }

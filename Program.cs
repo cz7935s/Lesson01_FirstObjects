@@ -15,7 +15,9 @@ var rng = new Random(42);
 //Scene1_ADieIsThreeNumbers(rng);
 //Scene2_TheCursedD20();
 //Scene3_WhatAVariableHolds();
-Scene4_Cards();
+//Scene4_Cards();
+//Scene5MoreCards();
+Scene6EvenMoreExoticCards();
 
 
 /// <summary>
@@ -132,11 +134,32 @@ static void Section(string title)
     Console.WriteLine($"── {title} {new string('─', Math.Max(0, 68 - title.Length))}");
 }
 
-static void Scene4_Cards()
+/*
+static void Scene4Cards()
 {
     var card1 = new Card("K", "Hearts" );
     var card2 = card1;
     Console.WriteLine(card1);
     Console.WriteLine(card2);
     Console.WriteLine(ReferenceEquals(card1, card2));
+}
+
+
+static void Scene5MoreCards()
+{
+    //notice how you don't have to put the type after "new"
+    Card myCard = new(8, new("♦", "Red"));
+    Console.WriteLine(myCard);
+}
+
+*/
+
+static void Scene6EvenMoreExoticCards()
+{
+    Card myCard = new(8, Suit.Hearts);
+    //now you can use "Suit.[Suit]" as an input!
+    Console.WriteLine(myCard);
+
+    Card badCard = new(-12, new("◼", "Green"));
+    Console.WriteLine(badCard);
 }
